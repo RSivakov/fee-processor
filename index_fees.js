@@ -62,9 +62,8 @@ async function fetchSupbgraphPage(referrer, url, blockNumber, skip) {
 async function getAllChainFees(referrer) {
     const dir = `./data/${referrer}`
     if (!fs.existsSync(dir)){
-        
+        fs.mkdirSync(dir, { recursive: true });   
     }
-    fs.mkdirSync(dir, { recursive: true });
 
     const chainsKeys = Object.keys(CHAINS_CONFIGURATION);
     for (const c of chainsKeys) {
